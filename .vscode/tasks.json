@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Nerve-Center: Run loader",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["loader.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Nerve-Center: Run tests",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "-q"],
+      "problemMatcher": []
+    }
+  ]
+}

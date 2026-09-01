@@ -1,0 +1,19 @@
+{
+  "name": "EQinOX Nerve-Center",
+  "version": "1.2.0",
+  "description": "Local-first skill routing and workspace integration.",
+  "skills_dir": "skills",
+  "skill_interface": "skills.skill_base.SkillBase",
+  "loader_entry": "loader.py:load_skills",
+  "workspace_integration": {
+    "vscode_workspace_file": ".vscode/nerve-center.code-workspace",
+    "recommended_extensions": [
+      "ms-python.python",
+      "ms-python.vscode-pylance"
+    ],
+    "auto_tasks": [
+      "Nerve-Center: Run loader",
+      "Nerve-Center: Run tests"
+    ]
+  }
+}

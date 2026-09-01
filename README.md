@@ -50,6 +50,18 @@ For a repeatable agent workflow in a new workspace, use the
 [workspace integration guide](docs/WORKSPACE_INTEGRATION.md) and its
 [`PLAN_PRACY` template](templates/PLAN_PRACY.md).
 
+### Workspace Skill Quickstart
+
+1. Add this repository to a VS Code workspace, then open
+  `.vscode/nerve-center.code-workspace` or copy its extension recommendations
+  into the workspace configuration.
+2. Tell the agent to read `manifest.json`. It declares the `skills/` directory,
+  the `SkillBase` interface, loader entry point, and available VS Code tasks.
+3. Add a Python module in `skills/` with a concrete `SkillBase` subclass, then
+  run `python loader.py` or the **Nerve-Center: Run loader** VS Code task.
+4. Run `python -m pytest -q` or the **Nerve-Center: Run tests** task to verify
+  discovery and project behavior.
+
 ### Claude Code (User Skills)
 ```bash
 # Copy the nerve-center/ directory to your skills folder
