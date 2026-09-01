@@ -109,6 +109,23 @@ Geo Skills pack: `geo_citability`, `geo_llmstxt`, `geo_crawler_policy`, and
 `geo_measurement`. They operate only on content supplied in the request and do
 not claim to measure a live answer engine.
 
+### Local Supply-Chain SBOM
+
+The `supply_chain` category's `supply_chain_sbom` adapter runs the free OWASP
+cdxgen CLI locally to generate a CycloneDX SBOM. It requires Node.js and
+`npm install --global @cdxgen/cdxgen`. The adapter requires absolute
+`projectPath` and `outputPath` inputs and always uses `--lifecycle pre-build
+--no-install-deps`, so it neither installs project dependencies nor calls
+external services. Apache-2.0 attribution and license text are retained in the
+tool directory.
+
+The `compliance` category's `cra_evidence_pack` converts a local CycloneDX or
+SPDX SBOM and product manifest into a hash-chained EU CRA technical evidence
+pack. It requires the free MIT-licensed `cra-sbom-evidence` CLI. The adapter
+only reads absolute local input paths, verifies the generated audit chain, and
+does not submit data to regulators. It produces technical evidence, not legal
+advice; MIT attribution and license text are retained in the tool directory.
+
 See [Adding Skills](docs/ADDING_SKILLS.md) for the complete directory,
 manifest, test, security, and release contract.
 

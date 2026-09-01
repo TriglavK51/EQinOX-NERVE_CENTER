@@ -10,8 +10,13 @@ from core.tool_registry import ToolManifest, ToolRegistry
 def test_registry_discovers_local_tool_manifests():
     catalog = ToolRegistry().catalog()
 
-    assert len(catalog) == 21
-    assert set(catalog) >= {"seo_technical", "ponytail_review"}
+    assert len(catalog) == 23
+    assert set(catalog) >= {
+        "seo_technical",
+        "ponytail_review",
+        "supply_chain_sbom",
+        "cra_evidence_pack",
+    }
     assert catalog["seo_technical"].path.name == "tool.json"
 
 

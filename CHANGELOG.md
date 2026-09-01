@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0
+
+- Added `supply_chain_sbom`, a local adapter for free OWASP cdxgen CycloneDX
+	SBOM generation in pre-build mode without dependency installation.
+- Added `cra_evidence_pack`, a local adapter for generating and verifying
+	hash-chained EU CRA technical evidence packs from SBOMs and product manifests.
+- Added Apache-2.0 attribution and license retention for the cdxgen-informed
+	adapter and MIT attribution and license retention for the CRA evidence
+	adapter; no third-party source code is included.
+
 ## 1.2.0
 
 - Added categorized local-skill discovery and parallel category dispatch.

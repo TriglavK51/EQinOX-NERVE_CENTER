@@ -1,0 +1,16 @@
+{
+  "name": "supply_chain_sbom",
+  "category": "supply_chain",
+  "version": "1.3.0",
+  "description": "Generate a local CycloneDX SBOM with the cdxgen CLI in safe pre-build mode.",
+  "inputs": {
+    "projectPath": "string",
+    "outputPath": "string"
+  },
+  "outputs": {
+    "report": "object"
+  },
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}
