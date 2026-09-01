@@ -1,0 +1,11 @@
+{
+  "name": "geo_crawler_policy",
+  "category": "geo",
+  "version": "1.2.0",
+  "description": "Offline AI crawler access policy review for robots.txt",
+  "inputs": {"robotsTxt": "string"},
+  "outputs": {"report": "object"},
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}

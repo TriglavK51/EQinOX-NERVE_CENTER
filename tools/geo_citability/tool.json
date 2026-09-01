@@ -1,0 +1,11 @@
+{
+  "name": "geo_citability",
+  "category": "geo",
+  "version": "1.2.0",
+  "description": "Offline assessment of content citability for answer engines",
+  "inputs": {"text": "string"},
+  "outputs": {"report": "object"},
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}

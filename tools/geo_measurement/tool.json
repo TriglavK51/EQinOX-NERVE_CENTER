@@ -1,0 +1,11 @@
+{
+  "name": "geo_measurement",
+  "category": "geo",
+  "version": "1.2.0",
+  "description": "Offline calculation of AI visibility measurements from probe results",
+  "inputs": {"probes": "array"},
+  "outputs": {"report": "object"},
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}

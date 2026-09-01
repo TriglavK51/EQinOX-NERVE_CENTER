@@ -47,7 +47,14 @@ def test_dispatch_runs_a_category_in_parallel() -> None:
                 )
             },
         ),
-        ("geo", {"text": "Local GEO review"}),
+        (
+            "geo",
+            {
+                "text": "Local GEO review",
+                "robotsTxt": "User-agent: *\nDisallow:",
+                "probes": [{"mentioned": False, "cited": False}],
+            },
+        ),
         ("crawling", {"html": "<html><body><h1>X</h1></body></html>"}),
         ("security", {"text": "Review this input"}),
         ("writing", {"text": "Create an offline report"}),

@@ -1,0 +1,11 @@
+{
+  "name": "geo_llmstxt",
+  "category": "geo",
+  "version": "1.2.0",
+  "description": "Offline llms.txt validator for AI-readable site facts",
+  "inputs": {"text": "string"},
+  "outputs": {"report": "object"},
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}

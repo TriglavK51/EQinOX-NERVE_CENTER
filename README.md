@@ -90,6 +90,13 @@ URLs, so it does not bypass the default external-egress policy. See
 [OpenSERP local setup](docs/OPEN_SERP_LOCAL_SETUP.md) for the free installation
 path and operating constraints.
 
+### Offline GEO Checks
+
+The `geo` category includes four deterministic adapters informed by the MIT
+Geo Skills pack: `geo_citability`, `geo_llmstxt`, `geo_crawler_policy`, and
+`geo_measurement`. They operate only on content supplied in the request and do
+not claim to measure a live answer engine.
+
 See [Adding Skills](docs/ADDING_SKILLS.md) for the complete directory,
 manifest, test, security, and release contract.
 
