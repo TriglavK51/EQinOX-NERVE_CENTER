@@ -1,6 +1,6 @@
 # Run Nerve Center
 
-Create a Python 3.11 virtual environment, install `pip install -e ".[dev]"`, and set `NERVE_CENTER_VAULT_PASSPHRASE` before using the vault.
+On Windows, run `powershell -ExecutionPolicy Bypass -File .\setup.ps1 -Start` from the repository root. The script finds Python 3.11+, creates or reuses `.venv`, installs `pip install -e ".[dev]"`, and starts the local service. Set `NERVE_CENTER_VAULT_PASSPHRASE` before using the vault.
 
 Start the localhost-only service with `python mcp_server.py`. Discover tools at `http://127.0.0.1:8088/.well-known/tools`.
 

@@ -37,6 +37,19 @@ Nerve-Center sits between the user and the tool catalog. It:
 
 ## Installation
 
+### Windows and VS Code Workspaces
+
+From the repository root, run one command to create or update the local Python
+environment, install dependencies, and start the localhost-only API:
+
+```powershell
+.\setup.ps1 -Start
+```
+
+For a repeatable agent workflow in a new workspace, use the
+[workspace integration guide](docs/WORKSPACE_INTEGRATION.md) and its
+[`PLAN_PRACY` template](templates/PLAN_PRACY.md).
+
 ### Claude Code (User Skills)
 ```bash
 # Copy the nerve-center/ directory to your skills folder
