@@ -1,1 +1,1 @@
-{"name":"seo_technical","version":"0.1.0","description":"Local SEO technical analyzer","inputs":{"html":"string"},"outputs":{"report":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"seo_technical","category":"seo","version":"0.1.0","description":"Local SEO technical analyzer","inputs":{"html":"string"},"outputs":{"report":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

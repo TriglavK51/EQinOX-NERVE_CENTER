@@ -1,1 +1,1 @@
-{"name":"seo_audit","version":"0.1.0","description":"Offline SEO audit stub","inputs":{"html":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"seo_audit","category":"seo","version":"1.2.0","description":"Offline static HTML SEO audit","inputs":{"html":"string"},"outputs":{"report":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

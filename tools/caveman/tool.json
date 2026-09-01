@@ -1,1 +1,1 @@
-{"name":"caveman","version":"0.1.0","description":"Offline skill health stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"caveman","category":"token_optimization","version":"0.1.0","description":"Offline skill health stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

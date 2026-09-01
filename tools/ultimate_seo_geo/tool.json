@@ -1,1 +1,1 @@
-{"name":"ultimate_seo_geo","version":"0.1.0","description":"Offline geo SEO stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"ultimate_seo_geo","category":"geo","version":"0.1.0","description":"Offline geo SEO stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

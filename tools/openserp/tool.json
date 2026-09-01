@@ -1,0 +1,11 @@
+{
+  "name": "openserp",
+  "category": "serp",
+  "version": "1.2.0",
+  "description": "Free local OpenSERP API client for structured search results",
+  "inputs": {"query": "string", "engines": "array", "limit": "number", "baseUrl": "string"},
+  "outputs": {"result": "object", "connection": "object"},
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}

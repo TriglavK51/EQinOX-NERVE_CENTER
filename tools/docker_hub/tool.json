@@ -1,1 +1,1 @@
-{"name":"docker_hub","version":"0.1.0","description":"Offline image manifest stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"docker_hub","category":"devops","version":"0.1.0","description":"Offline image manifest stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

@@ -7,6 +7,7 @@ import hmac
 import json
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 from core.api_adapter import run_tool
@@ -35,10 +36,30 @@ class Dispatcher:
         started = time.perf_counter()
         results: dict[str, Any] = {}
         try:
-            for name in chain:
-                results[name] = self.retry.call(name, lambda name=name: run_tool(name, input_data))
-                record_dispatch(name, True)
-            payload = {"status": "ok", "tool": tool, "chain": chain, "results": results}
+            if tool == "category":
+                with ThreadPoolExecutor(max_workers=len(chain)) as executor:
+                    futures = {
+                        name: executor.submit(
+                            self.retry.call, name, lambda name=name: run_tool(name, input_data)
+                        )
+                        for name in chain
+                    }
+                    for name in chain:
+                        results[name] = futures[name].result()
+                        record_dispatch(name, True)
+            else:
+                for name in chain:
+                    results[name] = self.retry.call(
+                        name, lambda name=name: run_tool(name, input_data)
+                    )
+                    record_dispatch(name, True)
+            payload = {
+                "status": "ok",
+                "tool": tool,
+                "chain": chain,
+                "results": results,
+                "localOnly": True,
+            }
         except Exception:
             record_dispatch(chain[-1], False)
             self.logger.exception("Local tool dispatch failed: tool=%s agent=%s", tool, agent)
@@ -70,6 +91,16 @@ class Dispatcher:
             if not chain:
                 raise ValueError("no executable chain matches input.intent")
             return chain
+        if tool == "category":
+            category = input_data.get("category")
+            if not isinstance(category, str) or not category:
+                raise ValueError("category dispatch requires a non-empty input.category")
+            return [
+                manifest.name
+                for manifest in self.registry.by_category(category)[
+                    : int(self.config["chainMaxDepth"])
+                ]
+            ]
         if tool not in catalog:
             raise ValueError(f"unknown tool: {tool}")
         return [tool]

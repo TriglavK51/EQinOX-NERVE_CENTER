@@ -7,7 +7,8 @@ the service handles discovery or dispatch.
 ## Directory Contract
 
 Create one directory per skill using lowercase letters, digits, and
-underscores:
+underscores. Add a `THIRD_PARTY_LICENSES/` directory and an attribution file
+when a skill incorporates or derives from a third-party implementation:
 
 ```text
 tools/<tool_name>/
@@ -51,6 +52,7 @@ directory name.
 ```json
 {
   "name": "example_tool",
+    "category": "seo",
   "version": "1.1.0",
   "description": "Short, action-oriented local tool description.",
   "inputs": {"text": "string"},
@@ -65,6 +67,24 @@ Keep `localOnly` set to `true`. Declare every vault permission in
 `permissions`; do not load a secret that is not declared. Input and output
 schemas use simple JSON-compatible type labels such as `string`, `number`,
 `boolean`, `array`, and `object`.
+
+`category` is optional for compatibility and defaults to `uncategorized`; use
+a lowercase alphanumeric identifier with underscores for new skills.
+
+## Category Dispatch
+
+Clients can run every local skill in a category in parallel:
+
+```json
+{
+    "tool": "category",
+    "input": {"category": "seo", "html": "<html>...</html>"}
+}
+```
+
+Category execution is capped by `chainMaxDepth`, retains registry order in its
+result, and is intended only for independent local tools that accept the same
+input contract.
 
 ## Test Contract
 

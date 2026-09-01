@@ -1,1 +1,1 @@
-{"name":"seo_unlighthouse","version":"0.1.0","description":"Offline Lighthouse-style stub","inputs":{"html":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"seo_unlighthouse","category":"seo","version":"0.1.0","description":"Offline Lighthouse-style stub","inputs":{"html":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

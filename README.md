@@ -71,10 +71,24 @@ Just place the `nerve-center/` folder anywhere Claude Code can read `.md` files 
 
 ### Adding a local tool
 
-Each skill lives in `tools/<tool_name>/`. Add a `tool.json` manifest that
-declares its inputs, outputs, permissions, and `localOnly: true`, then expose
-`run(input_data: dict) -> dict` from `server.py`. `ToolRegistry` discovers and
-validates the manifest automatically; no dispatcher registration is needed.
+Each skill lives in `tools/<tool_name>/`. Add a compact `tool.json` manifest
+that declares its category, inputs, outputs, permissions, and `localOnly: true`,
+then expose `run(input_data: dict) -> dict` from `server.py`. `ToolRegistry`
+discovers and validates the manifest automatically; no dispatcher registration
+is needed. JSON is the runtime index for fast discovery, while Markdown is used
+for human-facing instructions, attribution, and license records.
+
+Skills sharing a category can be invoked together with `tool: "category"`; the
+local dispatcher executes their independent adapters in parallel, capped by the
+configured chain depth.
+
+### Free Local API Connections
+
+`openserp` connects to a self-hosted OpenSERP instance at
+`http://127.0.0.1:7000` by default. The adapter accepts only loopback HTTP(S)
+URLs, so it does not bypass the default external-egress policy. See
+[OpenSERP local setup](docs/OPEN_SERP_LOCAL_SETUP.md) for the free installation
+path and operating constraints.
 
 See [Adding Skills](docs/ADDING_SKILLS.md) for the complete directory,
 manifest, test, security, and release contract.
@@ -207,4 +221,4 @@ Part of the EQinOX ecosystem — High Premium digital services built with clean,
 
 ---
 
-*Nerve-Center v1.0.0 — August 2026*
+*Nerve-Center v1.2.0 — September 2026*

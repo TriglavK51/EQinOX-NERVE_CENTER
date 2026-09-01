@@ -31,6 +31,7 @@ class ToolManifest:
     """Validated, local-only tool metadata."""
 
     name: str
+    category: str
     version: str
     description: str
     inputs: dict[str, str]
@@ -48,6 +49,9 @@ class ToolManifest:
             raise ValueError(f"manifest {path} must set localOnly to true")
         if not isinstance(source["name"], str) or not source["name"].replace("_", "").isalnum():
             raise ValueError(f"manifest {path} has an invalid name")
+        category = source.get("category", "uncategorized")
+        if not isinstance(category, str) or not category.replace("_", "").isalnum():
+            raise ValueError(f"manifest {path} has an invalid category")
         if not isinstance(source["inputs"], dict) or not isinstance(source["outputs"], dict):
             raise ValueError(f"manifest {path} inputs and outputs must be objects")
         if not isinstance(source["permissions"], list) or not all(
@@ -56,6 +60,7 @@ class ToolManifest:
             raise ValueError(f"manifest {path} permissions must be a list of strings")
         return cls(
             name=source["name"],
+            category=category,
             version=str(source["version"]),
             description=str(source["description"]),
             inputs={key: str(value) for key, value in source["inputs"].items()},
@@ -69,6 +74,7 @@ class ToolManifest:
         """Return API-compatible manifest metadata."""
         return {
             "name": self.name,
+            "category": self.category,
             "version": self.version,
             "description": self.description,
             "inputs": self.inputs,
@@ -100,6 +106,10 @@ class ToolRegistry:
 
     def names(self) -> set[str]:
         return set(self.catalog())
+
+    def by_category(self, category: str) -> list[ToolManifest]:
+        """Return the local tools assigned to one category."""
+        return [manifest for manifest in self.list() if manifest.category == category]
 
     def require(self, name: str) -> ToolManifest:
         try:

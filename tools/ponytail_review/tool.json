@@ -1,1 +1,1 @@
-{"name":"ponytail_review","version":"0.1.0","description":"Offline code review stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}
+{"name":"ponytail_review","category":"code_quality","version":"0.1.0","description":"Offline code review stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

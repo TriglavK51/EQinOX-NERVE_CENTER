@@ -13,7 +13,7 @@ description: |
   i rozszerzenia powinny się uruchomić — i łączy je w łańcuch dla maksymalnej skuteczności
   przy minimalnym koszcie tokenowym. Żadnych komend: czyta intencję, ocenia narzędzia,
   odpala najlepszą kombinację i uczy się z wyników.
-version: "1.1.0"
+version: "1.2.0"
 author: TriglavK51 EQinOX
 license: MIT
 ---

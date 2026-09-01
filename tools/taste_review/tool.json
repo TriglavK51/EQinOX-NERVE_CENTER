@@ -1,0 +1,11 @@
+{
+  "name": "taste_review",
+  "category": "taste",
+  "version": "1.2.0",
+  "description": "Offline frontend taste and semantic CSS review",
+  "inputs": {"text": "string"},
+  "outputs": {"report": "object"},
+  "localOnly": true,
+  "permissions": [],
+  "costEstimate": "low"
+}
