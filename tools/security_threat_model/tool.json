@@ -1,0 +1,1 @@
+{"name":"security_threat_model","version":"0.1.0","description":"Offline threat model stub","inputs":{"text":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

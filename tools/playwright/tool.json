@@ -1,0 +1,1 @@
+{"name":"playwright","version":"0.1.0","description":"Offline browser inspection stub","inputs":{"html":"string"},"outputs":{"result":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

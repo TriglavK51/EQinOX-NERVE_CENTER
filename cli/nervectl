@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""Local CLI entry point for Nerve Center."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import urllib.request
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from core.dispatcher import Dispatcher
+from core.evolution import rollback
+from mcp_server import main as start_server
+from vault.cli import main as vault_main
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(prog="nervectl")
+    commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("start")
+    run_parser = commands.add_parser("run")
+    run_parser.add_argument("--tool", required=True)
+    run_parser.add_argument("--input", required=True, dest="input_file")
+    commands.add_parser("health")
+    rollback_parser = commands.add_parser("rollback")
+    rollback_parser.add_argument("snapshot")
+    vault_parser = commands.add_parser("vault")
+    vault_parser.add_argument("arguments", nargs=argparse.REMAINDER)
+    args = parser.parse_args()
+    if args.command == "start":
+        start_server()
+    elif args.command == "run":
+        with open(args.input_file, encoding="utf-8") as handle:
+            print(json.dumps(Dispatcher().dispatch({"tool": args.tool, "input": json.load(handle)}), indent=2))
+    elif args.command == "health":
+        with urllib.request.urlopen("http://127.0.0.1:8088/healthz", timeout=2) as response:
+            print(response.read().decode())
+    elif args.command == "rollback":
+        rollback(args.snapshot)
+    else:
+        sys.argv = ["nervectl vault", *args.arguments]
+        return vault_main()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

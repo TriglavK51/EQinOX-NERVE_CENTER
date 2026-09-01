@@ -1,0 +1,1 @@
+{"name":"pdf","version":"0.1.0","description":"Structured local PDF fallback","inputs":{"content":"object"},"outputs":{"document":"object"},"localOnly":true,"permissions":[],"costEstimate":"low"}

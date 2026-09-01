@@ -1,0 +1,20 @@
+{
+  "host": "127.0.0.1",
+  "port": 8088,
+  "allowExternalEgress": false,
+  "chainMaxDepth": 5,
+  "timeouts": {
+    "toolSeconds": 30,
+    "playwrightSeconds": 30
+  },
+  "resourceLimits": {
+    "playwrightMemoryMb": 512
+  },
+  "cacheTtlSeconds": 300,
+  "scoringWeights": {
+    "relevance": 0.4,
+    "cost": 0.25,
+    "speed": 0.2,
+    "trackRecord": 0.15
+  }
+}

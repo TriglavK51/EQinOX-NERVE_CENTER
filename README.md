@@ -56,6 +56,16 @@ Just place the `nerve-center/` folder anywhere Claude Code can read `.md` files 
 
 ## How It Works
 
+### Adding a local tool
+
+Each skill lives in `tools/<tool_name>/`. Add a `tool.json` manifest that
+declares its inputs, outputs, permissions, and `localOnly: true`, then expose
+`run(input_data: dict) -> dict` from `server.py`. `ToolRegistry` discovers and
+validates the manifest automatically; no dispatcher registration is needed.
+
+See [Adding Skills](docs/ADDING_SKILLS.md) for the complete directory,
+manifest, test, security, and release contract.
+
 ### Scoring Formula
 
 ```
@@ -94,14 +104,15 @@ Five failure recovery modes — from chain failure through context overflow to c
 
 ```
 nerve-center/
-├── SKILL.md                       # Core skill — protocol + conflict + emergency
-├── evolution-log.md               # Learning journal + rollback snapshots
-├── references/
-│   ├── scoring-matrix.md          # 4-factor scoring logic + weight adjustment
-│   ├── chain-recipes.md           # 10 proven tool chain combinations
-│   └── cost-database.md           # Real token costs for 622 skills
-├── LICENSE                        # MIT
-└── README.md                      # This file
+├── mcp_server.py                  # Local HTTP discovery and dispatch API
+├── core/                           # Routing, scoring, chains, audit, registry
+├── tools/                          # Self-describing local skill adapters
+├── vault/                          # AES-GCM local secret store
+├── cli/nervectl                    # Local command-line interface
+├── docs/                           # Operations, security, and skill authoring
+├── tests/                          # Offline unit and integration tests
+├── SKILL.md                        # Agent routing protocol
+└── README.md                       # This file
 ```
 
 ---

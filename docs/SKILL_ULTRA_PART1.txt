@@ -1,0 +1,1 @@
+EQinOX Nerve Center is a local-first tool router. It validates a request, discovers local manifests, selects a direct tool or an R01-R10 recipe, executes bounded local adapters, and records signed hashes. External egress is disabled by default. The vault encrypts values using AES-GCM with a runtime-derived passphrase key.
